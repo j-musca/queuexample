@@ -1,0 +1,14 @@
+---
+applications:
+- name: cf-consumer
+  memory: 128M
+  instances: 1
+  no-route: true
+  health-check-type: none
+  path: ./build/libs/queuexample-0.0.1-SNAPSHOT.jar
+  services:
+   - rabbit
+env:
+  test: 123
+  JBP_CONFIG_OPEN_JDK_JRE: "{memory_calculator: { stack_threads: 24, memory_sizes: { heap: 16m, stack: 256k, metaspace: 32m}}}"
+  #JBP_CONFIG_OPEN_JDK_JRE: "{memory_calculator: { stack_threads: 24, memory_sizes: { heap: 64m, stack: 512k, metaspace: 48m}}}"
